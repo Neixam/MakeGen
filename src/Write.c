@@ -48,9 +48,11 @@ void    ldflags_write(char **ldflags, FILE *out)
 
 void    src_write(t_files files, FILE *out)
 {
-    fprintf(out, "SRC = ");
-    for (; files; files = files->next)
-        fprintf(out, "%s.c \\\n", files->name);
+    if (!files)
+        return ;
+    fprintf(out, "SRC\t=\t%s.c \\\n", files->name);
+    for (files = files->next; files; files = files->next)
+        fprintf(out, "\t\t%s.c \\\n", files->name);
     fprintf(out, "\nSRC_PATH = $(shell find src -type d)\n");
     fprintf(out, "vpath %%.c $(foreach rep, $(SRC_PATH), $(rep))\n");
 }

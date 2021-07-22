@@ -17,7 +17,7 @@ INC_PATH=	includes/
 SRC		=	Main.c \
 			Write.c \
 			StockData.c \
-            Files.c \
+			Files.c \
 			Process.c \
             BasicFt.c \
 
