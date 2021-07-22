@@ -6,12 +6,13 @@
 
 #include "StockData.h"
 #include "Process.h"
+#include "Usage.h"
 #include <unistd.h>
 #include <getopt.h>
 
 int     main(int ac, char **av)
 {
-    const char  *optstring = "fq";
+    const char  *optstring = "fqh";
     int         ret;
     int         opt = 0;
     t_data      project;
@@ -26,12 +27,17 @@ int     main(int ac, char **av)
             case 'q':
                 opt = 0;
                 break;
+            case 'h':
+                usage(av[0]);
+                return (0);
             case '?':
                 printf("unknown option %c\n", optopt);
-                break;
+                printf("use the option h \"%s -h\" for usage\n", av[0]);
+                return (1);
             default :
                 printf("default : unknown option %c\n", optopt);
-                break;
+                printf("use the option h \"%s -h\" for usage\n", av[0]);
+                return (1);
         }
     }
     project = (ac - optind == 0) ? init_data("a.out") : init_data(av[optind]);

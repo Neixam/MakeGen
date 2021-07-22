@@ -20,6 +20,7 @@ SRC		=	Main.c \
 			Files.c \
 			Process.c \
             BasicFt.c \
+            Usage.c \
 
 SRC_PATH= $(shell find src -type d)
 vpath %.c $(foreach rep, $(SRC_PATH), $(rep))
@@ -27,10 +28,10 @@ OBJ_PATH=	obj/
 OBJ		=	$(addprefix $(OBJ_PATH),$(SRC:.c=.o))
 
 #  Compilation
-$(EXEC)				:	$(OBJ)
+$(EXEC)					:	$(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-$(OBJ_PATH)Main.o		:	$(INC_PATH)StockData.h $(INC_PATH)Process.h
+$(OBJ_PATH)Main.o		:	$(INC_PATH)StockData.h $(INC_PATH)Process.h $(INC_PATH)Usage.h
 
 $(OBJ_PATH)Write.o		:	$(INC_PATH)Write.h $(INC_PATH)Files.h
 
@@ -39,6 +40,8 @@ $(OBJ_PATH)StockData.o	:	$(INC_PATH)StockData.h $(INC_PATH)BasicFt.h $(INC_PATH)
 $(OBJ_PATH)Files.o		:	$(INC_PATH)Files.h $(INC_PATH)BasicFt.h
 
 $(OBJ_PATH)Process.o	:	$(INC_PATH)Process.h $(INC_PATH)Files.h $(INC_PATH)StockData.h
+
+$(OBJ_PATH)Usage.o		:	$(INC_PATH)Usage.h
 
 $(OBJ_PATH)%.o			:	%.c
 	@mkdir -p $(OBJ_PATH)
