@@ -40,7 +40,7 @@ void    ldflags_write(char **ldflags, FILE *out)
 
     if (!*ldflags)
         return ;
-    fprintf(out, "LDLAGS = ");
+    fprintf(out, "LDFLAGS = ");
     for (i = 0; ldflags[i] != NULL; i++)
         fprintf(out, "-%s ", ldflags[i]);
     fprintf(out, "\n");
