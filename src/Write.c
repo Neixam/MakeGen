@@ -27,7 +27,7 @@ void    exec_write(char *exec, FILE *out)
 
 void    cflags_write(int opt, FILE *out)
 {
-    fprintf(out, "CLAGS = ");
+    fprintf(out, "CFLAGS = ");
     if (opt)
         fprintf(out, "-ansi -pedantic -Wall\n");
     else
