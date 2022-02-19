@@ -104,5 +104,6 @@ void    end_write(FILE *out)
     fprintf(out, "\t@echo \"${red}Uninstall project ...${neutral}\"\n");
     fprintf(out, "\t@/bin/rm -rf $(EXEC)\n");
     fprintf(out, "\t@echo \"${green}END${neutral}\"\n\n");
-    fprintf(out, "re : fclean all\n");
+    fprintf(out, "re : fclean all\n\n");
+    fprintf(out, ".PHONY : all clean fclean re");
 }
