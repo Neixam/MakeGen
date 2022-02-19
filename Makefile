@@ -61,3 +61,5 @@ mrproper	:	clean
 	@echo "${green}END${neutral}"
 
 re			:	mrproper all
+
+.PHONY		:	all clean mrproper re
